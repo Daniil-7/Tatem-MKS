@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class='center'>Последние новости МКС и NASA</h3>
+<ul class="collection">
+  {% for daySet in ListNews %}
+  <li class="collection-item">
+  <p>{{daySet.time}}</p>
+  <h5><a href="{{daySet.url}}">{{daySet.title}}</a></h5>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

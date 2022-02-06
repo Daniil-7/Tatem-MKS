@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center">
+<h3>Картинка Дня</h3>
+<h6>Картинка дня - это картинка и информация о фото предоставленная NASA. К сожалению информация есть только на английском языке, по этому для перевода на русский используется переводчик google который не всегда правильно переводит, по этому мы советуем читать оригинал.</h6>
+<div>
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          {% if media_type == "image" %}
+          <img src="{{media_url}}">
+          {% endif %}
+          {% if media_type == "video" %}
+          <iframe width="330" height="200"
+          src="{{media_url}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+          </iframe>
+          {% endif %}
+        </div>
+        <div class="card-content">
+          <p>{{text}}</p>
+        </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a href="#test4" class="active">English</a></li>
+        <li class="tab"><a href="#test5">Russian</a></li>
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4">
+      <p>{{date}}</p>
+      <div id="test4">
+        <h5>{{title_en}}</h5>{{text_en}}</div>
+      <div id="test5">
+      <h5>{{title_ru}}</h5>{{text_ru}}</div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+M.AutoInit()
+</script>
+{% endblock %}
