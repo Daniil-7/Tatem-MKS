@@ -3,22 +3,22 @@ from hello.apidata import NewsNasaApi, ImageDayApi
 
 
 def index(request):
-  return render(request, 'index.html')
-  
-  
+    return render(request, "index.html")
+
+
 def home(request):
-  return render(request, 'home.html')
+    return render(request, "home.html")
 
 
 def news(request):
-  context = {'ListNews': NewsNasaApi() }
-  return render(request, 'news.html', context)
+    context = {"ListNews": NewsNasaApi()}
+    return render(request, "news.html", context)
 
 
 def imageday(request):
-  context = ImageDayApi() 
-  return render(request, 'imageday.html', context)
-  
+    context = ImageDayApi()
+    return render(request, "imageday.html", context)
+
 
 def track(request):
-  return render(request, 'track.html')
+    return render(request, "track.html")
